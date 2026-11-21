@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code เชื่อมต่อและตั้งค่า Wi-Fi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap');
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background: #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      margin: 0;
+    }
+    .instructions {
+      max-width: 500px;
+      background: white;
+      padding: 20px 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      color: #334155;
+    }
+    .instructions h3 { margin-top: 0; color: #1e3a8a; }
+    .instructions ol { padding-left: 20px; line-height: 1.6; }
+    .btn-print {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 25px;
+    }
+    .btn-print:hover { background: #1d4ed8; }
+
+    /* ป้ายสติ๊กเกอร์ QR Code แบบ Single-Scan */
+    .sticker-card {
+      width: 360px;
+      background: white;
+      border: 3px solid #2563eb;
+      border-radius: 20px;
+      padding: 25px 20px;
+      box-shadow: 0 10px 25px rgba(37,99,235,0.15);
+      text-align: center;
+    }
+    .sticker-header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #1e3a8a;
+    }
+    .sticker-header p {
+      margin: 6px 0 15px;
+      color: #64748b;
+      font-size: 13px;
+    }
+    .qr-box {
+      background: #f8fafc;
+      border: 2px dashed #93c5fd;
+      border-radius: 16px;
+      padding: 15px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .qr-box img {
+      width: 200px;
+      height: 200px;
+      display: block;
+    }
+    .tagline {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 10px 0 5px;
+    }
+    .subtag {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.4;
+    }
+    .footer-note {
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 12px;
+      color: #059669;
+      font-weight: 600;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .instructions, .btn-print { display: none; }
+      .sticker-card {
+        box-shadow: none;
+        border: 2px solid #000;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="instructions">
+    <h3>📋 สติ๊กเกอร์ QR Code แบบ Single-Scan (สแกนอันเดียวจบ)</h3>
+    <ol>
+      <li>กดปุ่ม <b>"🖨️ สั่งพิมพ์การ์ดนี้"</b> เพื่อพิมพ์แปะข้างกล่องเครื่อง</li>
+      <li>เมื่อ User หรือกรรมการเปิดกล้องมือถือส่อง QR Code นี้:
+        <ul>
+          <li>มือถือจะกดเชื่อมต่อกับ <b>DogFeeder_Setup</b> ทันที</li>
+          <li><b>หน้าต่างเลือก Wi-Fi และใส่รหัสผ่านจะเด้งขึ้นมาบนจอมือถือทันทีอัตโนมัติ (Auto-Popup)</b></li>
+          <li>User เลือก Wi-Fi บ้านตัวเอง กรอกรหัส แล้วกดบันทึก เครื่องก็เริ่มทำงานได้เลย!</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <button class="btn-print" onclick="window.print()">🖨️ สั่งพิมพ์การ์ดนี้ (Print / Save PDF)</button>
+
+  <div class="sticker-card">
+    <div class="sticker-header">
+      <h2>🐶 Dog Feeder Wi-Fi Setup</h2>
+      <p>สแกนเพื่อเชื่อมต่อและตั้งค่า Wi-Fi</p>
+    </div>
+
+    <div class="qr-box">
+      <!-- QR Code มาตรฐาน Wi-Fi สำหรับต่อ DogFeeder_Setup ทันที -->
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=WIFI%3AS%3ADogFeeder_Setup%3BT%3Anopass%3B%3B" alt="QR Code Connect Wi-Fi">
+    </div>
+
+    <div class="tagline">📷 สแกนผ่านกล้องมือถือ</div>
+    <div class="subtag">เมื่อเชื่อมต่อแล้ว หน้าต่างเลือก Wi-Fi จะเด้งขึ้นมาอัตโนมัติ</div>
+
+    <div class="footer-note">
+      🤖 เข้าสั่งงานผ่าน Telegram: @Petfeeder667bot
+    </div>
+  </div>
+
+</body>
+</html>
