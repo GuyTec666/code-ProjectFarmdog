@@ -380,6 +380,10 @@ void startSetupMode() {
   dnsServer.start(DNS_PORT, "*", apIP);
 
   server.on("/", handleRoot);
+  server.on("/ping", HTTP_GET, []() {
+    server.sendHeader("Access-Control-Allow-Origin", "*");
+    server.send(200, "text/plain", "OK");
+  });
   server.on("/save", HTTP_POST, handleSave);
   server.on("/rescan", handleRescan);
   server.on("/favicon.ico", []() { server.send(204); });
